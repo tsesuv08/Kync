@@ -46,6 +46,9 @@ int main(int ac, chr **av)
 	if(!sfile)
 	{	printf("Sarla: ERR: Can't open file: %s\n", sfname);
 
+		free(tfname);
+		free(sfname);
+
 		return 1;
 	}
 
