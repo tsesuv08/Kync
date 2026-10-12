@@ -9,10 +9,14 @@
 #include <stdlib.h>
 
 typedef struct
+{	chr regA[3];
+	chr regB[3];
+	chr imm[32];
+} land_t; // 全てのオペランドはreg, imm, regreg, regimm, immreg, noLandの6種類
+
+typedef struct
 {	chr opCode[3]; // 全てのオペコードは3文字に圧縮してある
-	union
-	{	/* opLand */ ; // 共用体を有効活用した事が無いから使ってみるかも？
-	};
+	land_t opLand;
 } Token;
 
 FILE *sfile;
@@ -43,7 +47,7 @@ int main(uint ac, chr **av)
 		return 1;
 	}
 
-	uint sfsyze = fsyz(sfile);
+	uint sfsyze = fsize(sfile);
 
 	fclose(sfile);
 

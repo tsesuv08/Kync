@@ -103,7 +103,7 @@ chr ccha(chr c)
 	return 0;
 }
 
-uint fsyz(FILE *file)
+uint fsize(FILE *file)
 {	uint t = 0;
 
 	fseek(file, 0, SEEK_END);
